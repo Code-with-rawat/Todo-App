@@ -1,0 +1,224 @@
+ 
+/* section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+} */
+
+.todo-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100vw;
+  padding-top: 3%;
+  background-image: linear-gradient(100deg, #001214, #001f29);
+  /* background-image: url(https://media.istockphoto.com/id/1374486343/vector/3d-white-clipboard-task-management-todo-check-list-with-pencil-efficient-work-on-project.jpg?s=612x612&w=0&k=20&c=a-iLFN4VRflBxMNECwymc8bokNyZ0spbPl5hSQcjGaY=); */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  /* background-position: center center; */
+  /* background-attachment: fixed; */
+  color: rgb(248, 248, 248);
+  transition: 0.3s linear;
+  overflow: hidden;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .todo-container {
+    background-size: contain;
+    background-position: top center;
+    padding-top: 5%;
+  }
+}
+
+@media (max-width: 480px) {
+  .todo-container {
+    background-size: contain;
+    background-position: top center;
+    padding-top: 10%;
+  }
+}
+
+h2{
+  font-size: 55px;
+}
+ 
+.header,
+.form,
+.datetime {
+  margin: 0 1rem;
+  min-height: 10vh;
+  width: 100%;
+}
+
+.header {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 3rem;
+  min-height: 25vh;
+  width: 100%;
+}
+
+section h1 {
+  color: #fff;
+  font-size: 4.8rem;
+  text-align: center;
+}
+
+.date-time {
+  font-size: 2.4rem;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  font-size: 1.7rem;
+  justify-content: center;
+  margin: 15px 0;
+  padding: 0.9rem;
+  width: 100%;
+}
+
+form input {
+  padding: 9px;
+  margin: 1.5px;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+  border: none;
+  outline: none;
+  border-top-left-radius: 17px;
+  border-bottom-left-radius: 17px;
+  max-width: 500px;
+  transition: background-color 200ms ease-in-out;
+  width: 100%;
+  background-color: #f2f3f3;
+}
+
+form input:hover {
+  cursor: text;
+}
+
+form input::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+button {
+  border: none;
+  outline: none;
+  transition: box-shadow 200ms ease, background-color 200ms ease-in-out;
+  background-color: #2c3e50;
+  color: rgb(0, 0, 0);
+}
+
+form button:hover {
+  cursor: pointer;
+  background-color: #f1c40f;
+}
+
+form button {
+  padding: 11px;
+  font-size: 17px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  min-width: 100px;
+  background-color: #54ace7;
+  color: var(--secondary-color);
+}
+
+span {
+  margin-right: 3.2rem;
+}
+
+.myUnOrdList {
+  display: flex;
+  justify-content: center;
+
+  align-items: center;
+  max-width: 1200px;
+}
+
+.todo-list {
+  min-width: 25%;
+  
+  list-style: none;
+}
+
+.todo-item {
+  margin: 1.7rem;
+  font-size: 25px;
+  color: #050c13;
+  border-radius: 50px;
+  transition: background-color 200ms ease-in-out;
+  background-color: #2a4158;
+  min-width: 25rem;
+  max-width: 50rem;
+  padding: 0.9rem 2rem;
+  display: grid;
+  grid-template-columns: 1fr 3rem 3rem; /* Fixed width for buttons */
+  justify-content: start;
+  gap: 1.6rem;
+  align-items: center; /* This aligns everything vertically center */
+  overflow-wrap: anywhere;
+  background-color: rgb(7, 6, 5);
+}
+
+li span {
+  max-width: 20rem;
+  color: #f9fafc;
+}
+
+.check-btn,
+.delete-btn {
+  font-size: 1.6rem; /* Reduced to better fit in buttons */
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border: none;
+  padding: 0;
+}
+
+.check-btn {
+  color: #fff;
+  background-color: #2ecc71;
+}
+
+.delete-btn {
+  color: #fff;
+  background-color: #e74c3c;
+}
+
+.checkList {
+  text-decoration: line-through;
+}
+
+.notCheckList {
+  text-decoration: none;
+}
+
+.clear-btn {
+  background-color: #e74c3c;
+  font-size: 1.3rem;
+  font-weight: 500;
+  padding: 0.8rem 2rem;
+  border-radius: 0.9rem;
+  -webkit-border-radius: 0.8rem;
+  -moz-border-radius: 0.8rem;
+  -ms-border-radius: 0.3 em;
+  -o-border-radius: 0.3rem;
+}
+
+.clear-btn:hover {
+  background-color: #8d1407;
+}
+
