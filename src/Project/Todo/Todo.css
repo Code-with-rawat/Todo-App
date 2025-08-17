@@ -13,17 +13,11 @@
   width: 100vw;
   padding-top: 3%;
   background-image: linear-gradient(100deg, #001214, #001f29);
-  /* background-image: url(https://media.istockphoto.com/id/1374486343/vector/3d-white-clipboard-task-management-todo-check-list-with-pencil-efficient-work-on-project.jpg?s=612x612&w=0&k=20&c=a-iLFN4VRflBxMNECwymc8bokNyZ0spbPl5hSQcjGaY=); */
-  /* background-repeat: no-repeat; */
-  /* background-size: cover; */
-  /* background-position: center center; */
-  /* background-attachment: fixed; */
   color: rgb(248, 248, 248);
   transition: 0.3s linear;
   overflow: hidden;
 }
 
-/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .todo-container {
     background-size: contain;
