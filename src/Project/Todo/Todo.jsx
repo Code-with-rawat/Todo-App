@@ -3,10 +3,10 @@ import "../Todo/Todo.css";
 import Todoform from "./Todoform";
 import Todolist from "./Todolist";
 import Datetime from "./Datetime";
-import {  getlocalStorageTodo,  setlocalStorageTodo } from "./localStorage";
+import { getlocalStorageTodo, setlocalStorageTodo } from "./localStorage";
 
-export default function Todo() {
-  const [task, setTask] = useState(()=>getlocalStorageTodo() || []);
+export default function Todo(props) {
+  const [task, setTask] = useState(() => getlocalStorageTodo() || []);
 
   const handleSubmit = (InputVal) => {
     const { id, content, checked } = InputVal;
@@ -16,20 +16,22 @@ export default function Todo() {
     setTask((prevTask) => [...prevTask, { id, content, checked }]);
   };
 
-  //Todo LocalStorage
-    
+  // Save todos to localStorage
+  useEffect(() => {
     setlocalStorageTodo(task);
+  }, [task]);
 
-  //Todo Delete
+  // Delete task
   const handleDelete = (value) => {
     const taskDelete = task.filter((targetVal) => targetVal.content !== value);
     setTask(taskDelete);
   };
-  //Todo Checked
+
+  // Toggle checked
   const handleChecked = (content) => {
     const updateCheck = task.map((curTask) => {
       if (curTask.content === content) {
-        return {...curTask, checked:!curTask.checked };
+        return { ...curTask, checked: !curTask.checked };
       } else {
         return curTask;
       }
@@ -37,36 +39,33 @@ export default function Todo() {
     setTask(updateCheck);
   };
 
-  //HandleClear functionallity
+  // Clear all
   const handleClear = () => {
     setTask([]);
   };
+
   return (
-    <section className="todo-container">
+    <section className={`todo-container bg-${props.mode} text-${props.mode === "light" ? "dark" : "light"}`}>
       <header>
-        <h2>
-          <center>Todo List</center>
-        </h2>
+        <h2 className="text-center">Todo List</h2>
         <Datetime />
       </header>
       <Todoform todoform={handleSubmit} />
       <section className="myUnOrdList">
         <ul>
-          {task.map((curTask) => {
-            return (  
-              <Todolist
-                key={curTask.id}
-                currTask={curTask.content}
-                checked={curTask.checked}
-                handleDelete={handleDelete}
-                handleChecked={handleChecked}
-              />
-            );
-          })}
+          {task.map((curTask) => (
+            <Todolist
+              key={curTask.id}
+              currTask={curTask.content}
+              checked={curTask.checked}
+              handleDelete={handleDelete}
+              handleChecked={handleChecked}
+            />
+          ))}
         </ul>
       </section>
       <section>
-        <button className="clear-btn" onClick={handleClear}>
+        <button className="clear-btn btn btn-danger" onClick={handleClear}>
           Clear All
         </button>
       </section>
